@@ -1,67 +1,107 @@
 'use client'
 import Link from "next/link"
-
-
 import { useRef, useState, useEffect } from "react"
 
-
+// Add TypeScript declarations for YouTube API
+declare global {
+  interface Window {
+    YT: any;
+    onYouTubeIframeAPIReady: (() => void) | null;
+  }
+}
 
 export default function HomePage() {
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [isMuted, setIsMuted] = useState(true)
+  const [player, setPlayer] = useState<any>(null)
 
+  // Initialize YouTube Player API
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play()
+    // Create global callback function for YouTube API
+    const onYouTubeIframeAPIReady = () => {
+      if (!window.YT || !iframeRef.current) return
+      
+      const newPlayer = new window.YT.Player('youtube-player', {
+        events: {
+          'onReady': (event: any) => {
+            setPlayer(event.target)
+            event.target.playVideo()
+            if (isMuted) event.target.mute()
+          },
+          'onStateChange': (event: any) => {
+            setIsPlaying(event.data === window.YT.PlayerState.PLAYING)
+          }
+        }
+      })
+    }
+
+    // Add YouTube API script
+    if (!window.YT) {
+      const tag = document.createElement('script')
+      tag.src = 'https://www.youtube.com/iframe_api'
+      const firstScriptTag = document.getElementsByTagName('script')[0]
+      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag)
+      window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady
+    } else {
+      onYouTubeIframeAPIReady()
+    }
+
+    return () => {
+      // Cleanup
+      window.onYouTubeIframeAPIReady = null
     }
   }, [])
 
   const togglePlay = () => {
-    const video = videoRef.current
-    if (!video) return
+    if (!player) return
 
-    if (video.paused) {
-      video.play()
-      setIsPlaying(true)
-    } else {
-      video.pause()
+    if (isPlaying) {
+      player.pauseVideo()
       setIsPlaying(false)
+    } else {
+      player.playVideo()
+      setIsPlaying(true)
     }
   }
 
   const toggleMute = () => {
-    const video = videoRef.current
-    if (!video) return
+    if (!player) return
 
-    video.muted = !video.muted
-    setIsMuted(video.muted)
+    if (isMuted) {
+      player.unMute()
+      setIsMuted(false)
+    } else {
+      player.mute()
+      setIsMuted(true)
+    }
   }
 
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Logo Section */}
-      <div className="flex items-center justify-center gap-6 py-6 px-4">
-        <img src="/images/logo-sekolah.png" alt="SMKN 1 Kota Bekasi Logo" className="w-10 h-10" />
-        <div className="text-center">
-          <h1 className="text-xl font-light tracking-wider text-black">Secret Couture</h1>
+      <div className="bg-white/90 backdrop-blur-sm">
+          <div className="flex items-center justify-center gap-6 py-6">
+            <img src="/images/Logo-sekolah.png" alt="SMKN 1 Kota Bekasi Logo" className="w-10 h-10" />
+            <div className="text-center">
+              <h1 className="text-xl font-light tracking-wider text-black">Secret Couture</h1>
+            </div>
+            <img src="/images/Logo-acara.jpg" alt="Secret Couture Logo" className="w-15 h-10" />
+          </div>
         </div>
-        <img src="/images/logo-acara.jpg" alt="Secret Couture Logo" className="w-15 h-10" />
-      </div>
 
       <div className="relative px-4 mb-8">
         <div className="relative h-[200px] md:h-screen rounded-lg overflow-hidden">
-          <video
-            ref={videoRef}
+          <iframe
+            id="youtube-player"
+            ref={iframeRef}
             className="absolute w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src="/images/PRAJAKARA_1.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            src="https://www.youtube.com/embed/FwAaRC_SKxE?enablejsapi=1&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&loop=1&playlist=FwAaRC_SKxE"
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowFullScreen
+          ></iframe>
+
           <div className="absolute inset-0 bg-black/30"></div>
 
           {/* Kontrol Video */}
@@ -196,14 +236,20 @@ export default function HomePage() {
       {/* Bottom Navigation */}
       <div className="flex justify-center gap-8 py-8 px-4">
         <Link
+          href="/"
+          className="text-lg font-light tracking-wider hover:text-[#b8860b] transition-colors duration-300 text-black"
+        >
+          Home
+        </Link>
+        <Link
           href="/designers"
-          className="text-lg font-light tracking-wider hover:text-purple-600 transition-colors duration-300 text-black"
+          className="text-lg font-light tracking-wider hover:text-[#b8860b] transition-colors duration-300 text-black"
         >
           Designer
         </Link>
         <Link
           href="/booklet"
-          className="text-lg font-light tracking-wider hover:text-purple-600 transition-colors duration-300 text-black"
+          className="text-lg font-light tracking-wider hover:text-[#b8860b] transition-colors duration-300 text-black"
         >
           Booklet
         </Link>
