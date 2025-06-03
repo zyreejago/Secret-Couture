@@ -10,6 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://secret-couture.vercel.app"),
   title: "Secret Couture 2025 | SMKN 1 Kota Bekasi",
   description: "Fashion showcase by students of Fashion Design and Production program at SMKN 1 Kota Bekasi",
   keywords: "fashion, couture, SMKN 1 Bekasi, fashion design, student showcase",
