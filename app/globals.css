@@ -106,3 +106,24 @@
 .backdrop-blur-xs {
   backdrop-filter: blur(2px);
 }
+/* Tambahkan di akhir file */
+.youtube-container iframe {
+  pointer-events: none; /* Mencegah interaksi dengan kontrol YouTube */
+}
+
+/* Saat tombol kontrol kustom diklik, aktifkan kembali interaksi */
+.youtube-container.interactive iframe {
+  pointer-events: auto;
+}
+
+/* Overlay untuk menutupi logo YouTube */
+.youtube-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}

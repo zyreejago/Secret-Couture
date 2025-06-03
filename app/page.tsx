@@ -91,11 +91,11 @@ export default function HomePage() {
         </div>
 
       <div className="relative px-4 mb-8">
-        <div className="relative h-[200px] md:h-screen rounded-lg overflow-hidden">
+        <div className="relative h-[200px] md:h-screen rounded-lg overflow-hidden youtube-container">
           <iframe
             id="youtube-player"
             ref={iframeRef}
-            className="absolute w-full h-full object-cover"
+            className="absolute w-full h-full object-cover border-0"
             src="https://www.youtube.com/embed/FwAaRC_SKxE?enablejsapi=1&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&loop=1&playlist=FwAaRC_SKxE"
             frameBorder="0"
             allow="autoplay; fullscreen"
