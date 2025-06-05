@@ -32,13 +32,15 @@ export default function BookletPage() {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Logo section - Horizontal Layout with smaller size */}
-      <div className="flex items-center justify-center gap-6 py-6">
-        <img src="/images/logo-sekolah.png" alt="SMKN 1 Kota Bekasi Logo" className="w-10 h-10" />
-        <div className="text-center">
-          <h1 className="text-xl font-light tracking-wider text-black">Secret Couture</h1>
+      <div className="bg-white/90 backdrop-blur-sm">
+          <div className="flex items-center justify-center gap-6 py-6">
+            <img src="/images/Logo-sekolah.png" alt="SMKN 1 Kota Bekasi Logo" className="w-10 h-10" />
+            <div className="text-center">
+              <h1 className="text-xl font-light tracking-wider text-black">Secret Couture</h1>
+            </div>
+            <img src="/images/Logo-acara.jpg" alt="Secret Couture Logo" className="w-15 h-10" />
+          </div>
         </div>
-        <img src="/images/logo-acara.jpg" alt="Secret Couture Logo" className="w-15 h-10" />
-      </div>
 
       <div className="px-4 py-8">
         <h1 className="text-4xl uppercase tracking-wider text-center mb-16 font-light text-black">Booklet</h1>
@@ -93,7 +95,7 @@ export default function BookletPage() {
               </div>
 
               <div className="flex items-start p-6 rounded-2xl bg-purple-100/80 backdrop-blur-sm border border-purple-200/50 shadow-lg">
-                <Mail className="w-6 h-6 mr-4 mt-1 text-purple-600" />
+              <Mail className="w-8 h-8 sm:w-6 sm:h-6 mr-4 mt-1 text-purple-600" />
                 <div className="flex-1">
                   <a
                     href={`mailto:${contactInfo.email}`}

@@ -228,7 +228,7 @@ const collections: Record<string, Collection> = {
       "/images/SMKN 1 BEKASI 1007.jpg",
       "/images/SMKN 1 BEKASI 980.jpg",
       "/images/SMKN 1 BEKASI 1030.jpg",
-      "/images/SMKN 1 BEKASI 1064.jpg",
+      "/images/SMKN 1 BEKASI 1065.jpg",
       "/images/SMKN 1 BEKASI 1096.jpg",
       "/images/SMKN 1 BEKASI 1083.jpg",
       "/images/SMKN 1 BEKASI 1073.jpg",
@@ -400,11 +400,11 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
 
             {/* Second paragraph */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-12">
-              <div className="lg:col-span-5">
+            <div className="lg:col-span-5">
                 <img
                   src={secondParagraphMap[slug].image}
                   alt={`${collection.title} secondary`}
-                  className="w-full h-[16rem] sm:h-[20rem] md:h-[24rem] rounded-2xl object-cover hover:shadow-xl transition-all duration-300"
+                  className="w-full h-[24rem] sm:h-[28rem] md:h-[32rem] rounded-2xl object-cover object-center hover:shadow-xl transition-all duration-300 mx-auto max-w-xs"
                 />
               </div>
               <div className="lg:col-span-7 flex items-center">
