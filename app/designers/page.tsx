@@ -44,7 +44,7 @@ export default function DesignersPage() {
     "Designer RENJANA": [
       { name: "Indryani Elisabet Sinaga", photo: "/images/Indryani Elisabet Sinaga.jpg", username: "@indriyani._02" },
       { name: "Safa Sakinah", photo: "/images/Safa Sakinah.jpg", username: "@esefaalx_" },
-      { name: "Nabila Aryani", photo: "/images/Nabila A.jpg", username: "@bilgreen47" },
+      { name: "Nabila Aryani", photo: "/images/NABILA A.jpg", username: "@bilgreen47" },
       { name: "Tasya Rahma Pratiwi", photo: "/images/Tasya Rahma Pratiwi.jpg", username: "@tasyarah15" },
       { name: "Syifa Aulia Az Zahra", photo: "/images/Syifa Aulia Az Zahra_.jpg", username: "@sipaaa_aull" },
       { name: "Valda Zabrina", photo: "/images/valda zabrina.jpg", username: "@qddaaz" },
