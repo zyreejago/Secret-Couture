@@ -96,7 +96,7 @@ export default function HomePage() {
             id="youtube-player"
             ref={iframeRef}
             className="absolute w-full h-full object-cover border-0"
-            src="https://www.youtube.com/embed/abc12345?autoplay=1&mute=1&loop=1&playlist=abc12345&enablejsapi=1&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
+            src="https://www.youtube-nocookie.com/embed/0gP5BQ3YAM8?autoplay=1&mute=1&loop=1&playlist=0gP5BQ3YAM8&enablejsapi=1&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
             frameBorder="0"
             allow="autoplay; fullscreen"
             allowFullScreen
