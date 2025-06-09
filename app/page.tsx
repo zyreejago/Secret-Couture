@@ -161,7 +161,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h2 className="text-3xl font-light tracking-wider mb-3 text-white">AAHAR</h2>
-              <p className="text-lg opacity-90 text-white">Mystical Heritage</p>
+              <p className="text-lg opacity-90 text-white">Cerita lembut dari rasa dan rupa</p>
             </div>
           </div>
         </Link>
@@ -183,7 +183,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h2 className="text-3xl font-light tracking-wider mb-3 text-white">HARSA</h2>
-              <p className="text-lg opacity-90 text-white">Theatrical Stories</p>
+              <p className="text-lg opacity-90 text-white">Cerita dalam warna, dinamis dalam bentuk</p>
             </div>
           </div>
         </Link>
@@ -205,7 +205,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h2 className="text-3xl font-light tracking-wider mb-3 text-white">NISKALA</h2>
-              <p className="text-lg opacity-90 text-white">Visual Form</p>
+              <p className="text-lg opacity-90 text-white">Kontras warna, futuristik di tiap siluet desain </p>
             </div>
           </div>
         </Link>
@@ -227,7 +227,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h2 className="text-3xl font-light tracking-wider mb-3 text-white">RENJANA</h2>
-              <p className="text-lg opacity-90 text-white">Sensory Experience</p>
+              <p className="text-lg opacity-90 text-white">Sentuhan irama budaya pada balutan kain</p>
             </div>
           </div>
         </Link>

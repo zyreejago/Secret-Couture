@@ -4,14 +4,15 @@ import ImageCarousel from "@/components/image-carousel";
 import { ReactNode } from "react";
 import type { Metadata } from "next"
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  // Dapatkan data koleksi berdasarkan slug
-  const collection = collections[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  // Await params sebelum menggunakan propertinya
+  const { slug } = await params;
+  const collection = collections[slug];
   
   // Jika koleksi tidak ditemukan, kembalikan metadata default
   if (!collection) {
     return {
-      title: "Collection Not Found | Secret Couture 2025",
+      title: "Secret Couture 2025",
       description: "The requested fashion collection could not be found",
     };
   }
@@ -46,7 +47,7 @@ interface Collection {
 const collections: Record<string, Collection> = {
   aahar: {
     title: "AAHAR",
-    description: "Cerita lembut dari rasa dan rupa",
+    description: "",
     icon: (
       <svg viewBox="0 0 24 24" className="w-20 h-20 fill-white">
         <path d="M12 2C8 2 5 5 5 9c0 2 1 4 2 5l5 6 5-6c1-1 2-3 2-5 0-4-3-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z" />
@@ -70,8 +71,8 @@ const collections: Record<string, Collection> = {
       "",
     ],
     designers: ["Nawal", "Ita", "Intan", "Nuha", "Nadine", "Nabila. N", "Bianca", "Brineth"],
-    subtitle: "Selendang Mayang",
-    quote: "Sebuah tafsiran visual dari kuliner tradisional khas Kota Bekasi – Cerita lembut dari rasa dan rupa.",
+    subtitle: "",
+    quote: "",
     finalImages: [
       "/images/SMKN 1 BEKASI 1212.jpg",
       "/images/SMKN 1 BEKASI 935.jpg",
@@ -92,7 +93,7 @@ const collections: Record<string, Collection> = {
   },
   harsa: {
     title: "HARSA",
-    description: "Ceria dalam warna, dinamis dalam bentuk",
+    description: "",
     icon: (
       <svg viewBox="0 0 24 24" className="w-20 h-20 fill-white">
         <path d="M12 2l-2 4-2-1 1 3-3-1 2 3-3 0 3 2-2 2 3-1-1 3 2-1 2 4 2-4 2 1-1-3 3 1-2-2 3-2-3 0 2-3-3 1 1-3-2 1z" />
@@ -124,8 +125,8 @@ const collections: Record<string, Collection> = {
       "",
     ],
     designers: ["Dwi", "Salsabila", "Chandraning", "Reva. M", "Fatimah", "Fernanda", "Tania"],
-    subtitle: "Go! Wet",
-    quote: "Lahir dari keceriaan dan warna - warni Go! Wet Waterpark – Ceria dalam warna, dinamis dalam bentuk.",
+    subtitle: "",
+    quote: "",
     finalImages: [
       "/images/SMKN 1 BEKASI 511.jpg",
       "/images/SMKN 1 BEKASI 508.jpg",
@@ -141,7 +142,7 @@ const collections: Record<string, Collection> = {
   },
   niskala: {
     title: "NISKALA",
-    description: "Kontras warna, futuristik di tiap siluet desain",
+    description: "",
     icon: (
       <svg viewBox="0 0 24 24" className="w-20 h-20 fill-white">
         <path d="M12 2L2 20h20L12 2zm0 4l6 12H6l6-12z" />
@@ -172,9 +173,9 @@ const collections: Record<string, Collection> = {
       "",
       "",
     ],
-    designers: ["Nadya", "Sarah", "Syahdiah", "Khayrah", "Melda", "Sabila", "Lijah", "Keysyah"],
-    subtitle: "Landmark Summarecon",
-    quote: "Bangunan arsitektur di persimpangan bundaran pusat Kota Bekasi, Landmark Summarecon – Kontras warna, futuristik di tiap siluet desain.",
+    designers: ["Nadya", "Sarah", "Syahdiah", "Khayrah", "Melda", "Sabila", "Siti", "Keysyah"],
+    subtitle: "",
+    quote: "",
     finalImages: [
       "/images/SMKN 1 BEKASI 155.jpg",
       "/images/SMKN 1 BEKASI 199.jpg",
@@ -190,7 +191,7 @@ const collections: Record<string, Collection> = {
   },
   renjana: {
     title: "RENJANA",
-    description: "Sentuhan irama budaya pada balutan kain",
+    description: "",
     icon: (
       <svg viewBox="0 0 24 24" className="w-20 h-20 fill-white">
         <path d="M12 2C8 2 5 5 5 9v6c0 2 1 4 3 5l4 1 4-1c2-1 3-3 3-5V9c0-4-3-7-7-7zm-3 8c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2zm6 0c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2zm-3 6c-2 0-4-1-4-3h8c0 2-2 3-4 3z" />
@@ -216,9 +217,9 @@ const collections: Record<string, Collection> = {
       "",
       "",
     ],
-    designers: ["Indriyani", "Tasya", "Andin", "Valda", "Nabila. A", "Safa", "Syifa", "Desi"],
-    subtitle: "Tari Lenggang Bekasi",
-    quote: "Segala yang hidup, bergerak, dan bermakna, menyatu dalam satu tarian – Sentuhan irama budaya pada balutan kain.",
+    designers: ["Indryani", "Tasya", "Andin", "Valda", "Nabila. A", "Safa", "Syifa", "Desi"],
+    subtitle: "",
+    quote: "",
     finalImages: [
       "/images/SMKN 1 BEKASI 819.jpg",
       "/images/SMKN 1 BEKASI 808.jpg",
@@ -297,11 +298,11 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
     },
     niskala: {
       image: "/images/SMKN 1 BEKASI 181.jpg",
-      text: `Niskala</><br />Landmark Summarecon<br /><br /><strong>By:</strong> Nadya, Sarah, Syahdiah, Khayrah, Melda, Sabila, Lijah, Keysyah<br /><em>"Bangunan arsitektur di persimpangan bundaran pusat Kota Bekasi, Landmark Summarecon – Kontras warna, futuristik di tiap siluet desain."</em>`,
+      text: `Niskala</><br />Landmark Summarecon<br /><br /><strong>By:</strong> Nadya, Sarah, Syahdiah, Khayrah, Melda, Sabila, Siti, Keysyah<br /><em>"Bangunan arsitektur di persimpangan bundaran pusat Kota Bekasi, Landmark Summarecon – Kontras warna, futuristik di tiap siluet desain."</em>`,
     },
     renjana: {
       image: "/images/SMKN 1 BEKASI 890.jpg",
-      text: `Renjana<br />Tari Lenggang Bekasi<br /><br /><strong>By:</strong> Indriyani, Tasya, Andin, Valda, Nabila. A, Safa, Syifa, Desi<br /><em>"Segala yang hidup, bergerak, dan bermakna, menyatu dalam satu tarian – Sentuhan irama budaya pada balutan kain."</em>`,
+      text: `Renjana<br />Tari Lenggang Bekasi<br /><br /><strong>By:</strong> Indryani, Tasya, Andin, Valda, Nabila. A, Safa, Syifa, Desi<br /><em>"Segala yang hidup, bergerak, dan bermakna, menyatu dalam satu tarian – Sentuhan irama budaya pada balutan kain."</em>`,
     },
   };
 

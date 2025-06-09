@@ -77,6 +77,7 @@ export default function DesignersPage() {
         {/* Main content */}
         <div className="px-4 py-8">
           <h1 className="text-4xl uppercase tracking-wider text-center mb-16 font-light text-black">Designers</h1>
+          <p className="text-center text-lg mb-16 text-black font-light">Introducing the creative minds behind the designs</p>
 
           <div className="max-w-6xl mx-auto">
             {Object.entries(designerGroups).map(([groupName, designers], groupIndex) => (
