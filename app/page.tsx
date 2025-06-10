@@ -183,7 +183,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h2 className="text-3xl font-light tracking-wider mb-3 text-white">HARSA</h2>
-              <p className="text-lg opacity-90 text-white">Cerita dalam warna, dinamis dalam bentuk</p>
+              <p className="text-lg opacity-90 text-white">Ceria dalam warna, dinamis dalam bentuk</p>
             </div>
           </div>
         </Link>
